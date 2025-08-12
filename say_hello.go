@@ -1,5 +1,10 @@
 package go_utility
 
-func SayHello(name string) string {
-	return "Hello " + name
+import "errors"
+
+func SayHello(name string) (string, error) {
+	if name == "" {
+		return "", errors.New("name cannot be empty")
+	}
+	return "Hello " + name, nil
 }
